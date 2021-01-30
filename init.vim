@@ -1,4 +1,4 @@
-"                 _                      ___ _     
+"                _                      ___ _     
 " ___ ___ ___ _ _|_|_____    ___ ___ ___|  _|_|___ 
 "|   | -_| . | | | |     |  |  _| . |   |  _| | . |
 "|_|_|___|___|\_/|_|_|_|_|  |___|___|_|_|_| |_|_  |
@@ -210,21 +210,24 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 
-set t_Co=256
-syntax on
-colorscheme minimalist
+"set t_Co=256
+"syntax on
+"colorscheme minimalist
+"syntax enable
+"set background=dark
+
 syntax enable
 set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
+colorscheme solarized
+let g:solarized_termcolors=256
+if has('gui_running')
+      set background=light
+    else
+          set background=dark
+        endif
 
-"if has('gui_running')
-"    set background=light
-"else
-"    set background=dark
-"endif
 
-let g:coc_global_extensions = ['coc-json', 'coc-git','coc-tsserver','coc-eslint','coc-prettier']
+let g:coc_global_extensions = ['coc-json', 'coc-git','coc-tsserver','coc-prettier']
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:mapleader = ' '  " Definir espacio como la tecla líder
